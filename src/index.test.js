@@ -4,7 +4,7 @@ import memoize from './memoize';
 import smaller from './index';
 
 const getArray = memoize(() => {
-  const l = 80000;
+  const l = 100000;
   const a = new Array(l);
   let i = 0;
   for (i = 0; i < l; i += 1) { a[i] = Math.floor(Math.random() * l); }
@@ -34,7 +34,6 @@ describe('smaller', () => {
       const start = new Date().getTime();
       smaller(a);
       const end = new Date().getTime() - start;
-      console.log(end);
       expect(end).to.be.below(12000);
     });
   });
